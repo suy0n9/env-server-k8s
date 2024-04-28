@@ -6,13 +6,18 @@
 ## 前提条件
 以下がインストールされていること。
 
+- python 3.12
+- poetry
 - Docker
 - kubectl
 - kind
 - kustomize
 
 ## 環境構築
-
+1. Python依存関係のインストール
+    ```
+    poetry install
+    ```
 1. kindクラスタの作成
     developmentとproduction用のクラスタを作成
     ```
@@ -54,8 +59,8 @@
 ## マニフェストの適用
 各環境にマニフェストを適用
 ```
-kubectl --context kind-dev-cluster apply -k overlays/development
-kubectl --context kind-dev-cluster apply -k overlays/production
+kubectl --context kind-dev-cluster apply -k kubernetes/overlays/development
+kubectl --context kind-dev-cluster apply -k kubernetes/overlays/production
 ```
 
 
